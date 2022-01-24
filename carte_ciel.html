@@ -1,0 +1,101 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+
+    <script type="text/javascript" src="js/d3.min.js"></script>
+    <script type="text/javascript" src="js/d3.geo.projection.min.js"></script>
+    <script type="text/javascript" src="js/celestial.js"></script>
+    <link rel="stylesheet" href="style/celestial.css">
+    <style type="text/css">
+      .btnPlanet { display: inline-block; font: bold 14pt Consolas; margin: 0 6px; padding: 2px 6px; border: 2px solid #000; border-radius: 3px; background: rgba(204, 204, 255, 0.6) }
+    </style>
+</head>
+
+<body>
+    <!--Espace réserver à l'entête -->
+    <div class="banniere">
+        <img src="images/banniere.png" width="1000px" alt="Bannière de l'espace" />
+    </div>
+        <!-- Espace réserver au menu -->
+    <div id="menu_top">
+        <ul>
+            <li><a href="index.html" title="Bienvenue" >Accueil</a></li>
+            <li><a href="album.html" title="Photos" >Photos</a></li>
+            <li><a href="telechargement.html" title="Téléchargement" >Téléchargements</a></li>
+            <li><a href="video.html" title="Vidéo">Vidéos</a></li>
+            <li><a href="compte.html" title="Compte">Mon compte</a></li>
+            <li id="actif"><a href="carte_ciel.html" title="Carte">Carte du ciel</a></li>
+            <li><a href="formulaire.html" title="Pour me joindre" >Contact</a></li>
+            <li><a href="plan.html" title="plan du site" >Plan du site</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+    <div id="follow"></div>
+    <div style="overflow:hidden;"><div id="celestial-map"></div></div>
+    <div id="celestial-form"></div>
+    </div>
+
+    <div id="pied_de_page" style="margin-top: -6vh;">
+		<div id="gauche">
+			<p>
+				<a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10"
+						alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+			</p>
+		</div>
+		<div class="copyright">Copyright Technologies Web - 2019
+			<br />Vannes 56000
+		</div>
+	</div>
+
+ <script type="text/javascript">
+
+var cfg = Celestial.settings().set({
+      geopos: [47.666456976635594, -2.75978258607692],
+      location: true,
+      form: true,
+      formFields: {"location": true, "general": false, "stars": false, "dsos": false, "constellations": false, "lines": false, "other": false},
+      advanced: false,
+      follow: "center",
+      projection: "orthographic",
+      datapath: "https://ofrohn.github.io/data/",
+      planets: { show: true },
+      stars: { names: false, limit: 4.6 },
+      dsos: { show: false },
+      constellations: { names: false }
+    }),
+    reqID,
+    reqAnimFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame  ||
+                   window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
+                   window.oRequestAnimationFrame,
+    cncAnimFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame ||
+                   window.webkitCancelAnimationFrame || window.msCancelAnimationFrame ||
+                   window.oCancelAnimationFrame,
+    dt = new Date();
+
+Celestial.display(cfg);
+
+
+function animate() {
+  dt.setDate(dt.getDate()+1);
+  Celestial.date(dt);
+  reqID = reqAnimFrame(animate);
+  
+  if (follow === "") return;
+}
+
+d3.select('#celestial-map').on('mousedown', function() { cncAnimFrame(reqID) } )
+d3.select('#celestial-map').on('mouseup', function() { reqAnimFrame(animate) } )
+
+reqID = reqAnimFrame(animate);
+
+  </script>
+</body>
+</html>

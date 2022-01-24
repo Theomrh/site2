@@ -73,7 +73,7 @@ border:1px solid #07b;
     background-color:#888888;
     width:1000px;
     height:50px;
-    margin-top: 57.5vh;
+    margin-top: 8vh;
 }
 
 #pied_de_page2 {
@@ -93,7 +93,7 @@ border:1px solid #07b;
     background-color:#888888;
     width:1000px;
     height:50px;
-    margin-top: 17.3vh;
+    margin-top: 14.2vh;
 }
 
 #pied_de_page5 {
@@ -194,14 +194,88 @@ input[type=submit] {
     margin-left: 4px;
 }
 
-input[type=reset], 
-input[type=submit] {
-    width: 15%;
-    height: 40px;
+.player-container {
+  background: #1a1a1a;
+  overflow: auto;
+  width: 1000px;
+  margin: 0 0 20px;
+}
+
+.video-js {
+  float: left;
+}
+
+.vjs-playlist,
+.my-custom-class,
+#my-custom-element {
+  float: left;
+  width: 400px;
+}
+
+.vjs-playlist.vjs-playlist-horizontal {
+  float: none;
+  height: 120px;
+  width: 600px;
+}
+
+.block-video {
+    width: 1000px;
+}
+
+.line-ytb-head {
+    margin-top: 30px;
+    display: flex;
+}
+
+.line-ytb {
+    display: flex;
+}
+
+.video-text {
+    display: block;
     margin-top: 20px;
+}
+
+.video-text iframe {
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 0 19.8px 0 19.8px;
+}
+
+.video-text p {
+    padding-top: 20px;
+    padding-left: 19.8px;
+}
+
+.table-compte {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.table-compte input[type=text], 
+input[type=password] {
+    width: 150px;
+    height: 24px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin-left: -450px;
+}
+
+.table-compte label {
+    margin-left: 350px;
+}
+
+#login {
+    position: absolute;
+    margin-top: -26px;
+}
+
+.table-compte input[type=reset], 
+.table-compte input[type=submit] {
+    margin-top: 60px;
+}
+
+.position-btn {
+    position: absolute;
+    margin-left: 500px;
+    display: flex;
 }
