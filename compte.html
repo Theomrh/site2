@@ -6,83 +6,84 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Album photo</title>
-    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <title>Mon compte</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 </head>
 
 <body>
-    <!--Espace réserver à l'entête -->
-    <div class="banniere">
-        <img src="images/banniere.png" width="1000px" alt="Bannière de l'espace" />
-    </div>
-    <!-- Espace réserver au menu -->
-    <div id="menu_top">
-        <ul>
-            <li><a href="index.html" title="Bienvenue">Accueil</a></li>
-            <li><a href="album.html" title="Photos">Photos</a></li>
-            <li><a href="telechargement.html" title="Téléchargement">Téléchargements</a></li>
-            <li><a href="video.html" title="Vidéo">Vidéos</a></li>
-            <li id="actif"><a href="compte.html" title="Compte">Mon compte</a></li>
-            <li><a href="carte_ciel.html" title="Carte">Carte du ciel</a></li>
-            <li><a href="formulaire.html" title="Pour me joindre">Contact</a></li>
-            <li><a href="plan.html" title="plan du site">Plan du site</a></li>
-        </ul>
-    </div>
 
-    <div class="main">
-        <p style="color: red; margin-top: 50px; margin-bottom: 100px; margin-left: 20px;">Veuillez saisir votre login et
-            votre mot de passe:</p>
-
-        <table class="table-compte">
-            <tr>
-                <td>
-                    <form action="auth.php" method="GET" name="form" enctype="text/plain" onsubmit="return validate()">
-                        <label for id="login">Login: </label>
-                </td>
-                <td>
-                    <input type="text" name="login" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for id="pwd">Mot de passe: </label>
-                </td>
-                <td>
-                    <input type="password" name="pwd" />
-                </td>
-            </tr>
-            <tr>
-                <td class="sous-titre"></td>
-                <td></td>
-            </tr>
-            <tr>
-            <tr>
-                <td>
-                    <div class="position-btn">
-                        <input type="reset" name="reset" value="Effacer" />
-                        <input type="submit" name="submit" value="Valider" />
-                </td>
-    </div>
-    </td>
-    </tr>
-    </form>
-    </table>
-    </div>
-
-    <div id="pied_de_page2" style="margin-top: 330px;">
-
-        <div id="gauche">
-            <p>
-                <a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10"
-                        alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
-            </p>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler mx-3"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav px-3">
+                <li class="nav-item active">
+                    <a href="index.html" title="Bienvenue" class="nav-link text-black-50">Accueil</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="album.html" title="PHOTOS" class="nav-link text-black-50">Photos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="telechargement.html" title="Telechargement" class="nav-link text-black-50">Telechargements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="video.html" title="Videos" class="nav-link text-black-50">Vidéos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="compte.html" title="Compte" class="nav-link text-black">Mon compte</a>
+                </li>
+                <li class="nav-item">
+                    <a href="carte_ciel.html" title="Carte_du_ciel" class="nav-link text-black-50">Carte du ciel</a>
+                </li>
+                <li class="nav-item">
+                    <a href="formulaire.html" title="Pour me joindre" class="nav-link text-black-50">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="plan.html" title="plan du site" class="nav-link text-black-50">Plan du site</a>
+                </li>
+            </ul>
         </div>
-        <div class="copyright">Copyright Technologies Web - 2019
-            <br />Vannes 56000
-        </div>
+    </nav>
 
+    <div class="container col-md-12 mt-5">
+        <p style="margin-top: 50px;" class="text-danger">Veuillez saisir votre login et votre mot de passe : </p>
+    
+        <form action="auth.php" method="GET" name="form" enctype="text/plain" onsubmit="return validate()">
+            <div class="form-group">
+                <label for="login">Identifiant : </label>
+                <input type="text" class="form-control" id="login" placeholder="Identifiant" required>
+            </div>
+            <div class="form-group mt-3">
+                <label for="pwd">Mot de passe : </label>
+                <input type="password" class="form-control" id="pwd" placeholder="Mot de passe" required>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="reset" name="reset" class="btn btn-primary mt-3 mx-3">Effacer</button>
+                <button type="submit" name="submit" class="btn btn-primary mt-3 mx-3">Valider</button>
+            </div>
+        </form>
     </div>
-    <script src="js/index.js"></script>
+
+<div class="container-fluid bg-light" style="margin-top: 300px;">
+    <div class="container">
+        <footer class="py-3">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-black">Accueil</a></li>
+                <li class="nav-item"><a href="https://iss.cnes.fr/fr/" class="nav-link px-2 text-black">ISS</a></li>
+                <li class="nav-item"><a href="https://www.nasa.gov/" class="nav-link px-2 text-black">Nasa</a></li>
+                <li class="nav-item"><a href="" class="nav-link px-2 text-black">FAQ</a></li>
+                <li class="nav-item"><a href="formulaire.html" class="nav-link px-2 text-black">A propos</a></li>
+            </ul>
+            <p class="text-center text-black">&copy; 2022 Copyright Vannes</p>
+        </footer>
+    </div>
+</div>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="js/index.js"></script>
 </body>
 
 </html>
